@@ -1,0 +1,96 @@
+body {
+    background-color: skyblue;
+}
+.navbar {
+    background-color: white;
+    padding: 10px;
+}
+.navbar-brand img {
+    height: 60px;
+    width: 70px;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #01377D; 
+    font-size: 18px; 
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #26B170; 
+    text-decoration: underline;
+}
+
+.profile-dropdown {
+    text-decoration: none !important; 
+}
+
+.profile-container {
+    align-items: center;
+    background: #01377D; 
+    padding: 10px 15px;
+    border-radius: 30px; 
+}
+
+.profile-image {
+    width: 45px; 
+    height: 45px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 2px solid white; 
+    margin-right: 10px;
+}
+
+.profile-container i {
+    font-size: 18px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: white;
+}
+
+.profile-name {
+    color: white;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.role-badge {
+    background: skyblue; 
+    color: black;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-right: 2px;
+}
+
+.dropdown-menu .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #26B170 
+}
+
+.dropdown-menu .dropdown-item i {
+    width: 30px; 
+}
+
+.language-container {
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    border-radius: 20px;
+    background-color: orange;
+    cursor: pointer;
+}
+
+.language-text {
+    font-weight: 700;
+    margin-left: 5px;
+    font-size: 15px; 
+}
+    
