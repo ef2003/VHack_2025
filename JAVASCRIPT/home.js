@@ -95,6 +95,22 @@ document.getElementById("amountInput").addEventListener("input", function () {
     }
 });
 
+let index = 0;
+        const reviewWrapper = document.getElementById("reviewWrapper");
+        const reviewCards = document.querySelectorAll(".review-card");
+        const cardWidth = reviewCards[0].offsetWidth + 20; // Adjust for margin
+        const maxIndex = reviewCards.length - 3;
 
+        document.getElementById("nextBtn").addEventListener("click", function() {
+            if (index < maxIndex) {
+                index++;
+                reviewWrapper.style.transform = `translateX(-${index * cardWidth}px)`;
+            }
+        });
 
-
+        document.getElementById("prevBtn").addEventListener("click", function() {
+            if (index > 0) {
+                index--;
+                reviewWrapper.style.transform = `translateX(-${index * cardWidth}px)`;
+            }
+        });
