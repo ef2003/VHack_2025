@@ -66,7 +66,13 @@
     <header class="hero">
         <h1>Turn Your Crypto into a <span class="highlight">Force for Good</span></h1>
         <p>Your funds don’t just sit—they grow and create long-term impact.</p>
-        <button class="donate-btn" onclick="scrollToForm()">Start Staking for Good</button>
+        <button class="donate-btn" onclick="navigateToPage()">Start Staking for Good</button>
+
+        <script>
+            function navigateToPage() {
+                window.location.href = "charityPoolStaking.html";
+            }
+        </script>
     </header>
 
 
@@ -103,7 +109,7 @@
 
 
     <!-- Staking Form -->
-    <section class="staking-form">
+    <!-- <section class="staking-form">
         <h2>Stake & Make an Impact</h2>
         <label for="amount">Amount to Stake (USDT):</label>
         <input type="number" id="amount" placeholder="Enter amount" required>
@@ -118,7 +124,7 @@
 
         <button onclick="stakeFunds()">Stake Now</button>
         <p id="confirmation-message"></p>
-    </section>
+    </section> -->
 
 
     <!-- Impact Stories -->
