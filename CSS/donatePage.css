@@ -1,0 +1,162 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background-image: url("../images/green_donation_draw.jpeg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: left;
+    padding: 100px 50px;
+}
+
+header h1, header p {
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    font-weight: bolder;
+    padding-left: 50px;
+}
+
+header h1:hover, header p:hover {
+    transform: scale(1.05); /* Slightly enlarge the text */
+    color: #2c3e50; /* Change text color on hover */
+}
+
+
+.project-card img {
+    width: 100%; /* Makes image responsive within its container */
+    height: auto; /* Maintains aspect ratio */
+    max-width: 300px; /* Ensures images do not get too large */
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.recommended-projects h2, .project-tags h2, .project-list h2 {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.project-card h3 {
+    font-size: larger;
+}
+
+.project-card p {
+    font-size: medium;
+}
+
+.recommended-projects, .project-tags, .project-list {
+    margin: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+    gap: 25px;
+    scroll-behavior: smooth;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: space-between; /* Push elements apart */
+    min-width: 250px;
+    padding: 20px;
+    background: #01377D;
+    color: white;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    background: #1f5192;
+}
+
+.tags-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px;
+}
+
+.tag {
+    background: #0356c2;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.tag:hover {
+    background: #1d4b86;
+}
+
+#projects-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 20px;
+    gap: 15px;
+    border-radius: 15px;
+    background-color: #c7dbf6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+#projects-container:hover {
+    transform: scale(1.03);
+}
+
+.project-item {
+    width: 90%;
+    background: #c7dbf6;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-item div h3 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.project-item img {
+    width: 100%; /* Makes image responsive within its container */
+    height: auto; /* Maintains aspect ratio */
+    max-width: 300px; /* Ensures images do not get too large */
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.donate-button {
+    width: 150px;
+    background: linear-gradient(45deg, #00b894, #0984e3);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.8s ease-in-out, transform 0.2s;
+}
+
+.donate-button:hover {
+    background: linear-gradient(45deg, #0984e3, #00b894);
+    transform: scale(1.05);
+}

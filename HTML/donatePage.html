@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Pool Page</title>
+    <title>Donate Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <link rel="stylesheet" href="../CSS/navBar.css">
-    <link rel="stylesheet" href="../CSS/charityPool.css">
+    <link rel="stylesheet" href="../CSS/donatePage.css">
 </head>
 
 <body>
@@ -65,100 +65,58 @@
         </div>
     </nav>
 
+    <!-- Header -->
+    <header>
+        <h1>Make an Impact</h1>
+        <p>Support projects that matter to you.</p>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <h1>Turn Your Crypto into a <span class="highlight">Force for Good</span></h1>
-        <p>Your funds don’t just sit—they grow and create long-term impact.</p>
-        <button class="donate-btn" onclick="navigateToPage()">Start Staking for Good</button>
-
-        <script>
-            function navigateToPage() {
-                window.location.href = "charityPoolStaking.html";
-            }
-        </script>
+        <!-- <img src="../images/green_donation_draw.jpeg" alt="green"> -->
     </header>
+    
+    <!-- Recommended projects for donor -->
+    <section class="recommended-projects">
+        <h2>Recommended Projects</h2>
 
-
-    <!-- Guideline -->
-    <section class="how-it-works">
-        <h2>How It Works</h2>
-        <div class="steps">
-            <div class="step" onclick="showDetails(1)">
-                Stake Crypto
-                <p class="step-detail">Lock your crypto into the staking pool to generate yield.</p>
+        <div class="scroll-container">
+            <div class="project-card" data-tags="environment">
+                <h3>Save the Rainforest</h3>
+                <img src="../images/rainforest.jpg" alt="rainforest">
+                <p>Protect the lungs of our planet.</p>
             </div>
-            <div class="step" onclick="showDetails(2)">
-                Earn Yield
-                <p class="step-detail">Your staked funds generate passive income through DeFi mechanisms.</p>
+            <div class="project-card" data-tags="animal welfare">
+                <h3>Rescue Abandoned Pets</h3>
+                <img src="../images/rescue_pets.jpg" alt="pets">
+                <p>Help shelter and care for rescued animals.</p>
             </div>
-            <div class="step" onclick="showDetails(3)">
-                Support Causes
-                <p class="step-detail">The yield earned is automatically distributed to verified charity projects.</p>
+            <div class="project-card" data-tags="children welfare">
+                <h3>Educate a Child</h3>
+                <img src="../images/educate_child.jpg" alt="children">
+                <p>Provide education to underprivileged children.</p>
             </div>
         </div>
     </section>
-
-
-
-    <!-- Live Stats -->
-    <section class="stats">
-        <h2>Live Yield & Impact</h2>
-        <div class="stat-box">
-            <p>Total Staked: <span id="total-staked" data-value="50000">$0</span></p>
-            <p>APY: <span id="apy" data-value="8">0%</span></p>
-            <p>Funds Raised for Charity: <span id="funds-raised" data-value="5000">$0</span></p>
+    
+    <!-- List of project tags -->
+    <section class="project-tags">
+        <h2>Explore by Cause</h2>
+        <div class="tags-container">
+            <button class="tag" data-tag="all">All</button>
+            <button class="tag" data-tag="environment">Environment Conservation</button>
+            <button class="tag" data-tag="animal welfare">Animal Welfare</button>
+            <button class="tag" data-tag="children welfare">Children Welfare</button>
+            <button class="tag" data-tag="hunger relief">Hunger Relief</button>
         </div>
     </section>
-
-
-    <!-- Staking Form -->
-    <!-- <section class="staking-form">
-        <h2>Stake & Make an Impact</h2>
-        <label for="amount">Amount to Stake (USDT):</label>
-        <input type="number" id="amount" placeholder="Enter amount" required>
-
-        <label for="cause">Choose Impact Pool:</label>
-        <select id="cause">
-            <option>Education</option>
-            <option>Healthcare</option>
-            <option>Climate Action</option>
-        </select>
-
-
-        <button onclick="stakeFunds()">Stake Now</button>
-        <p id="confirmation-message"></p>
-    </section> -->
-
-
-    <!-- Impact Stories -->
-    <section class="impact">
-        <h2>Impact Stories</h2>
-        <video controls>
-            <source src="impact-story.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+    
+    <!-- List of projects info -->
+    <section class="project-list">
+        <h2>Projects</h2>
+        <div id="projects-container">
+            <!-- Filtered projects will appear here -->
+        </div>
     </section>
-
-
-    <!-- Security & Transparency -->
-    <section class="security">
-        <h2>Security & Transparency</h2>
-        <ul>
-            <li>✔️ Audited Smart Contracts</li>
-            <li>✔️ Real-time Blockchain Transactions</li>
-            <li>✔️ Verified Charities</li>
-        </ul>
-    </section>
-
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 DeFi-for-Good | Secure & Transparent Giving</p>
-    </footer>
-
-
-    <script src="../JAVASCRIPT/charityPool.js"></script>
+    
+    <script src="../JAVASCRIPT/donatePage.js"></script>
     <script src="../JAVASCRIPT/navBar.js"></script>
 </body>
 
