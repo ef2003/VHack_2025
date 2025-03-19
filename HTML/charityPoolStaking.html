@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stake & Make an Impact | CharityChain</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+    <!-- Progress Steps -->
+    <div class="w-full max-w-4xl mx-auto mt-10">
+        <div class="flex justify-between items-center">
+            <div class="w-1/2 text-center">
+                <div id="step1"
+                    class="w-10 h-10 mx-auto rounded-full bg-blue-500 text-white flex items-center justify-center font-bold">
+                    1
+                </div>
+                <p class="mt-2 text-gray-700 font-semibold">
+                    Enter Investment Details
+                </p>
+            </div>
+            <div class="w-1/2 text-center">
+                <div id="step2"
+                    class="w-10 h-10 mx-auto rounded-full bg-gray-300 text-gray-600 flex items-center justify-center font-bold">
+                    2
+                </div>
+                <p class="mt-2 text-gray-500">Allocate Fund</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 1: Enter Investment Details -->
+    <div id="phase1" class="w-full max-w-4xl mx-auto bg-white p-6 mt-6 rounded-lg shadow-lg">
+        <h2 class="text-xl font-semibold mb-4">Enter Investment Details</h2>
+        <form>
+            <label class="block text-gray-700">Crypto Amount (USDT)</label>
+            <input type="number" id="cryptoAmount" class="w-full border p-2 rounded mb-3" placeholder="Enter USDT"
+                oninput="convertCryptoToFiat()" />
+
+            <label class="block text-gray-700">Fiat Currency</label>
+            <select id="fiatCurrency" class="w-full border p-2 rounded mb-3" onchange="convertCryptoToFiat()">
+                <option value="USD" selected>USD ($)</option>
+                <option value="EUR">EUR (€)</option>
+                <option value="GBP">GBP (£)</option>
+                <option value="MYR">RM (MYR)</option>
+            </select>
+
+            <label class="block text-gray-700">Fiat Amount</label>
+            <input type="text" id="fiatAmount" class="w-full border p-2 rounded mb-3" placeholder="Auto-calculated" readonly />
+
+            <label class="block text-gray-700">Investment Type</label>
+            <select id="investmentType" class="w-full border p-2 rounded mb-3">
+                <option value="">Select investment type</option>
+                <option>🌱 Microfinance Projects (Invest in small businesses, social enterprises)</option>
+                <option>🏥 Healthcare & Medical Research (Impact-driven medical projects)</option>
+                <option>🌍 Environmental & Sustainability Funds (Green energy, conservation projects)</option>
+                <option>🎓 Education & Skill Development (Scholarships, training programs)</option>
+                <option>🏡 Housing & Community Development (Affordable housing, rural projects)</option>
+            </select>
+
+            <label class="block text-gray-700">Your Name</label>
+            <input type="text" id="name" class="w-full border p-2 rounded mb-3" placeholder="Enter your name" />
+
+            <label class="block text-gray-700">Your Address</label>
+            <input type="text" id="address" class="w-full border p-2 rounded mb-3" placeholder="Enter your address" />
+
+            <button type="button" onclick="goToPhase2()" class="w-full bg-blue-500 text-white p-2 rounded mt-3">
+                Next Step
+            </button>
+        </form>
+    </div>
+
+    <!-- Phase 2: Allocate Fund -->
+    <div id="phase2" class="w-full max-w-4xl mx-auto bg-white p-6 mt-6 rounded-lg shadow-lg hidden">
+        <h2 class="text-xl font-semibold mb-4">Allocate Fund</h2>
+
+        <label><input type="checkbox" id="fullAllocation" onclick="allocateFull()" />
+            Allocate 100% to Money Market</label><br />
+        <label><input type="checkbox" id="poolBased" onclick="allocatePool()" />
+            Allocate based on Pool Allocation</label>
+
+        <table id="fundTable" class="w-full border-collapse border bg-gray-50 mt-4">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="border p-2">Pool</th>
+                    <th class="border p-2">Market Value</th>
+                    <th class="border p-2">Pool Allocation</th>
+                    <th class="border p-2">Grant Allocation (%)</th>
+                    <th class="border p-2">
+                        Amount (<span id="currencySymbol">$</span>)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center">
+                    <td class="border p-2">Money Market</td>
+                    <td class="border p-2">$9,845.05</td>
+                    <td class="border p-2">12%</td>
+                    <td class="border p-2">
+                        <input type="text" id="moneyMarketAllocation" class="border p-1 w-16 text-center allocation-percent"
+                            placeholder="%" />
+                    </td>
+                    <td class="border p-2">
+                        <input type="text" class="border p-1 w-16 text-center allocation-amount"
+                            placeholder="$" />
+                    </td>
+                </tr>
+                <tr class="text-center">
+                    <td class="border p-2">Asset Allocation (20% Equity)</td>
+                    <td class="border p-2">$11,005.50</td>
+                    <td class="border p-2">13%</td>
+                    <td class="border p-2">
+                        <input type="text" class="border p-1 w-16 text-center allocation-percent" placeholder="%" />
+                    </td>
+                    <td class="border p-2">
+                        <input type="text" class="border p-1 w-16 text-center allocation-amount" placeholder="$" />
+                    </td>
+                </tr>
+                <tr class="text-center">
+                    <td class="border p-2">Asset Allocation (70% Equity)</td>
+                    <td class="border p-2">$12,369.11</td>
+                    <td class="border p-2">15%</td>
+                    <td class="border p-2">
+                        <input type="text" class="border p-1 w-16 text-center allocation-percent" placeholder="%" />
+                    </td>
+                    <td class="border p-2">
+                        <input type="text" class="border p-1 w-16 text-center allocation-amount" placeholder="$" />
+                    </td>
+                </tr>
+                <tr class="text-center">
+                    <td class="border p-2">Asset Allocation (85% Equity)</td>
+                    <td class="border p-2">$16,336.55</td>
+                    <td class="border p-2">20%</td>
+                    <td class="border p-2">
+                        <input type="text" class="border p-1 w-16 text-center allocation-percent" placeholder="%" />
+                    </td>
+                    <td class="border p-2">
+                        <input type="text" class="border p-1 w-16 text-center allocation-amount" placeholder="$" />
+                    </td>
+                </tr>
+                <tr class="text-center">
+                    <td class="border p-2">Charitable Legacy</td>
+                    <td class="border p-2">$14,632.24</td>
+                    <td class="border p-2">18%</td>
+                    <td class="border p-2">
+                        <input type="text" class="border p-1 w-16 text-center allocation-percent" placeholder="%" />
+                    </td>
+                    <td class="border p-2">
+                        <input type="text" class="border p-1 w-16 text-center allocation-amount" placeholder="$" />
+                    </td>
+                </tr>
+                <tr class="text-center">
+                    <td class="border p-2">Environmental Impact Access</td>
+                    <td class="border p-2">$18,211.50</td>
+                    <td class="border p-2">22%</td>
+                    <td class="border p-2">
+                        <input type="text" class="border p-1 w-16 text-center allocation-percent" placeholder="%" />
+                    </td>
+                    <td class="border p-2">
+                        <input type="text" class="border p-1 w-16 text-center allocation-amount" placeholder="$" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" onclick="goToPhase1()" class="w-full bg-gray-500 text-white p-2 rounded mt-3">
+            Previous
+        </button>
+        <button type="button" onclick="submitDonation()" class="w-full bg-green-500 text-white p-2 rounded mt-3">
+            Submit Donation
+        </button>
+    </div>
+
+    <!-- Success Message -->
+    <div id="successMessage"
+        class="w-full max-w-4xl mx-auto bg-green-100 p-6 mt-6 rounded-lg shadow-lg text-center hidden">
+        <h2 class="text-xl font-semibold text-green-600">
+            🎉 Donation Successful!
+        </h2>
+        <p class="text-gray-700 mt-2">
+            Thank you for making an impact through CharityChain!
+        </p>
+    </div>
+
+    <script>
+        function goToPhase2() {
+            if (
+                !document.getElementById("cryptoAmount").value ||
+                !document.getElementById("investmentType").value
+            ) {
+                alert("Please fill all required fields.");
+                return;
+            }
+            document.getElementById("phase1").classList.add("hidden");
+            document.getElementById("phase2").classList.remove("hidden");
+            document.getElementById("step1").classList.remove("bg-blue-500", "text-white");
+            document.getElementById("step1").classList.add("bg-gray-300", "text-gray-600");
+            document.getElementById("step2").classList.remove("bg-gray-300", "text-gray-600");
+            document.getElementById("step2").classList.add("bg-blue-500", "text-white");
+        }
+
+        function goToPhase1() {
+            document.getElementById("phase2").classList.add("hidden");
+            document.getElementById("phase1").classList.remove("hidden");
+            document.getElementById("step1").classList.add("bg-blue-500", "text-white");
+            document.getElementById("step1").classList.remove("bg-gray-300", "text-gray-600");
+            document.getElementById("step2").classList.add("bg-gray-300", "text-gray-600");
+            document.getElementById("step2").classList.remove("bg-blue-500", "text-white");
+        }
+
+        function convertCryptoToFiat() {
+            let cryptoAmount = document.getElementById("cryptoAmount").value;
+            let fiatCurrency = document.getElementById("fiatCurrency").value;
+            let conversionRate = { USD: 1, EUR: 0.92, GBP: 0.78, MYR: 4.43 };
+            document.getElementById("fiatAmount").value = (
+                cryptoAmount * conversionRate[fiatCurrency]
+            ).toFixed(2);
+            document.getElementById("currencySymbol").innerText =
+                fiatCurrency === "USD" ? "$"
+                    : fiatCurrency === "EUR" ? "€"
+                        : fiatCurrency === "GBP" ? "£"
+                            : fiatCurrency === "MYR" ? "RM"
+                                : "$";
+        }
+
+        function submitDonation() {
+            document.getElementById("phase2").classList.add("hidden");
+            document.getElementById("successMessage").classList.remove("hidden");
+        }
+
+        function allocateFull() {
+            let fullCheckbox = document.getElementById("fullAllocation");
+            let poolCheckbox = document.getElementById("poolBased");
+            let fiatAmount = parseFloat(document.getElementById("fiatAmount").value) || 0;
+            let rows = document.querySelectorAll("#fundTable tbody tr"); // MODIFIED: Get all table rows
+
+            if (fullCheckbox.checked) {
+                poolCheckbox.checked = false; // Uncheck the other option
+
+                // Clear the fields first
+                rows.forEach((row) => {
+                    let grantAllocationCell = row.children[3]; // 4th column (Grant Allocation %)
+                    let amountInput = row.querySelector(".allocation-amount"); // 5th column (Amount)
+
+                    if (grantAllocationCell) {
+                        grantAllocationCell.textContent = ""; // Clear Grant Allocation %
+                    }
+                    if (amountInput) {
+                        amountInput.value = ""; // Clear Amount
+                    }
+                });
+
+                if (rows.length > 0) { // Ensure there's at least one row
+                    let firstRow = rows[0]; // Select only the first row
+                    let grantAllocationCell = firstRow.children[3]; // Get 4th column (Grant Allocation %)
+                    let amountInput = firstRow.querySelector(".allocation-amount"); // Get 5th column (Amount)
+
+                    if (grantAllocationCell) {
+                        grantAllocationCell.textContent = "100"; // Allocate 100% to first row only
+                    }
+                    if (amountInput) {
+                        amountInput.value = `${fiatAmount.toFixed(2)}`; // Assign full fiat amount
+                    }
+                }
+            } else {
+                // Clear values when "Full Allocation" is unticked
+                rows.forEach((row) => {
+                    let grantAllocationCell = row.children[3]; // 4th column (Grant Allocation %)
+                    let amountInput = row.querySelector(".allocation-amount"); // 5th column (Amount)
+
+                    if (grantAllocationCell) {
+                        grantAllocationCell.textContent = ""; // Clear Grant Allocation %
+                    }
+                    if (amountInput) {
+                        amountInput.value = ""; // Clear Amount
+                    }
+                });
+
+                console.log("Full Allocation unchecked, values cleared."); // Debugging Log
+            }
+        }
+
+
+        function allocatePool() {
+            let fullCheckbox = document.getElementById("fullAllocation");
+            let poolCheckbox = document.getElementById("poolBased");
+            let rows = document.querySelectorAll("#fundTable tbody tr");
+
+            let fiatAmount = parseFloat(document.getElementById("fiatAmount").value) || 0;
+
+            if (poolCheckbox.checked) {
+                fullCheckbox.checked = false; // Uncheck the other option
+
+                let allocationValues = [];
+
+                // Get Grant Allocation (%) & Assign Values
+                document.querySelectorAll("#fundTable tbody tr").forEach((row) => {
+                    let poolAllocationCell = row.children[2]; // Get the 3th column (Grant Allocation %)
+                    let fillInGrantAllocationCell = row.children[3];
+                    
+                    if (poolAllocationCell) {
+                        let grantText = poolAllocationCell.textContent.trim(); // Get text and remove spaces
+                        let numericValue = grantText.replace("%", ""); // Remove "%" symbol
+
+                        console.log(`Original: ${grantText}, Converted: ${numericValue}`); // Log results
+
+                        fillInGrantAllocationCell.textContent = numericValue; // Update the cell with numeric value
+                        allocationValues.push({numericValue, row,});
+                    }
+                });
+
+                 // Log the allocationValues array to check if it's correct
+                console.log("allocationValues:", allocationValues);
+
+
+                // Assign calculated values
+                allocationValues.forEach(({ numericValue, row }) => { // Use numericValue instead of grantAllocation
+                    let amountInput = row.querySelector(".allocation-amount");
+
+                    let grantAllocation = parseFloat(numericValue) || 0; // Ensure numeric value
+
+                    let calculatedAmount = ((fiatAmount * grantAllocation) / 100).toFixed(2); // Corrected calculation
+
+                    console.log(`Grant %: ${grantAllocation}, Fiat Amount: ${fiatAmount}, Calculated: $${calculatedAmount}`);
+
+                    if (amountInput) { // null check for safety
+                        amountInput.value = calculatedAmount;
+                    } else {
+                        console.warn("No allocation-amount input found in row:", row);
+                    }
+                });
+            } else if (poolCheckbox.checked == false){
+                // Clear values when donor unticks the checkbox
+                rows.forEach((row) => {
+                    let fillInGrantAllocationCell = row.children[3]; // 4th column
+                    let amountInput = row.querySelector(".allocation-amount"); // 5th column
+
+                    if (fillInGrantAllocationCell) {
+                        fillInGrantAllocationCell.textContent = ""; // Clear Grant Allocation %
+                    }
+                    if (amountInput) {
+                        amountInput.value = ""; // Clear Amount
+                    }
+                });
+
+                console.log("Checkbox unchecked, values cleared."); // Debugging log
+            }
+        }
+    </script>
+</body>
+
+</html>
