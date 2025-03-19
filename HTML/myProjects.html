@@ -20,7 +20,7 @@
 <body>
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="donorHome.html"><img src="../images/CC logo.png" alt="CC Logo"></a>
+            <a class="navbar-brand" href="organizerHome.html"><img src="../images/CC logo.png" alt="CC Logo"></a>
             <form class="d-flex ms-3">
                 <div class="input-group">
                     <span class="input-group-text"><i class="fas fa-search"></i></span>
@@ -83,7 +83,7 @@
                 <div class="project-details">
                     <div class="d-flex  align-items-center">
                         <h5>PandaSafe</h5>
-                        <i class="fas fa-sync-alt refresh-icon"></i>
+                        <i class="fas fa-sync-alt refresh-icon" onclick="refreshAmount(this)"></i>
                     </div>
                     <img src="../images/project1.jpg" alt="project1">
                     <p class="col-10">Project PandaSafe is dedicated to protecting and conserving pandas through habitat restoration,
@@ -92,7 +92,7 @@
                 </div>
                 <div class="funding-amount col-2">
                     <p>current funding amount:</p>
-                    <h5>RM 250,000</h5>
+                    <h5 data-amount="250000">RM 250,000</h5>
                 </div>
             </div>
 
@@ -100,7 +100,7 @@
                 <div class="project-details">
                     <div class="d-flex  align-items-center">
                         <h5>RhinoRescue</h5>
-                        <i class="fas fa-sync-alt refresh-icon"></i>
+                        <i class="fas fa-sync-alt refresh-icon" onclick="refreshAmount(this)"></i>
                     </div>
                     <img src="../images/project2.jpg" alt="project1">
                     <p class="col-10">Project RhinoRescue is a conservation initiative focused on protecting rhinos from poaching, habitat
@@ -109,7 +109,7 @@
                 </div>
                 <div class="funding-amount col-2">
                     <p>current funding amount:</p>
-                    <h5>RM 19,380</h5>
+                    <h5 data-amount="19380">RM 19,380</h5>
                 </div>
             </div>
             
@@ -117,7 +117,7 @@
                 <div class="project-details">
                     <div class="d-flex  align-items-center">
                         <h5>ReforestEarth</h5>
-                        <i class="fas fa-sync-alt refresh-icon"></i>
+                        <i class="fas fa-sync-alt refresh-icon" onclick="refreshAmount(this)"></i>
                     </div>
                     <img src="../images/project3.jpg" alt="project1">
                     <p class="col-10">Project ReforestEarth focuses on global reforestation, combating climate change, restoring
@@ -127,25 +127,35 @@
                 </div>
                 <div class="funding-amount col-2">
                     <p>current funding amount:</p>
-                    <h5>RM 550,780</h5>
+                    <h5 data-amount="550780">RM 550,780</h5>
                 </div>
             </div>
         </div>
 
-        <div id="yield4good" class="tab-content">
-            <div class="project">
-                <h5>Solar Panel Deployment</h5>
-                <p>Tender ID: 22345</p>
-                <p>Bid Amount: RM 500,000</p>
-                <p>Proposal Validity Expiry: 2025-02-10</p>
-                <p>Status: Pending</p>
+        <div id="yield4good" class="tab-content" data-tab="yield4good">
+            <div class="project d-flex justify-content-between align-items-center">
+                <div class="project-details">
+                    <div class="d-flex  align-items-center" onclick="refreshAmount(this)">
+                        <h5>🌱 Microfinance Projects (Invest in small businesses, social enterprises)</h5>
+                        <i class="fas fa-sync-alt refresh-icon"></i>
+                    </div>
+                </div>
+                <div class="funding-amount col-2">
+                    <p>current invest amount:</p>
+                    <h5 data-amount="50000">RM 50,000</h5>
+                </div>
             </div>
-            <div class="project">
-                <h5>Eco-Friendly Transportation</h5>
-                <p>Tender ID: 22346</p>
-                <p>Bid Amount: RM 1,200,000</p>
-                <p>Proposal Validity Expiry: 2025-03-22</p>
-                <p>Status: Approved</p>
+            <div class="project d-flex justify-content-between align-items-center">
+                <div class="project-details">
+                    <div class="d-flex  align-items-center" onclick="refreshAmount(this)">
+                        <h5>🌍 Environmental & Sustainability Funds (Green energy, conservation projects)</h5>
+                        <i class="fas fa-sync-alt refresh-icon"></i>
+                    </div>
+                </div>
+                <div class="funding-amount col-2">
+                    <p>current invest amount:</p>
+                    <h5 data-amount="22390">RM 22,390</h5>
+                </div>
             </div>
         </div>
     </div>
@@ -160,17 +170,17 @@
                 <div class="modal-body">
                     <form id="filterForm">
                         <div class="mb-3">
-                            <label for="category" class="form-label">Currency</label>
-                            <select id="category" class="form-select">
+                            <label for="currency" class="form-label">Currency</label>
+                            <select id="currency" class="form-select">
                                 <option value="" disabled class="choose-option">Choose a currency</option>
                                 <option value="Malaysia Ringgit" selected>MYR</option>
                                 <option value="US Dollars">USD</option>
                                 <option value="Chinese Yuan">CNY</option>
                             </select>
                         </div>
-                        <div class="mb-3">
-                            <label for="category" class="form-label">Topics</label>
-                            <select id="category" class="form-select">
+                        <div class="mb-3" >
+                            <label for="topics" class="form-label">Topics</label>
+                            <select id="topics" class="form-select">
                                 <option value="" disabled selected class="choose-option">Choose a topics</option>
                                 <option value="Animal Rescue">#Animal Rescue</option>
                                 <option value="Environment Conservation">#Environment Conservation</option>
