@@ -20,7 +20,7 @@ body {
 }
 
 .navbar-nav .nav-item .nav-link:hover {
-    color: #26B170; 
+    color: #319e6b ; 
     text-decoration: underline;
 }
 
@@ -74,7 +74,7 @@ body {
 }
 
 .dropdown-menu .dropdown-item:hover {
-    background-color: #26B170 
+    background-color: #2a815893
 }
 
 .dropdown-menu .dropdown-item i {

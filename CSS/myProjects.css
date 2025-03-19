@@ -1,0 +1,135 @@
+
+.myprojects {
+    padding: 20px 50px 25px 50px;
+  }
+
+  .myprojects h3{
+    font-size: 35px;
+  }
+  
+  .tabs {
+    display: flex;
+    padding: 10px 0px 0px 0px;
+  }
+
+  
+  .tab {
+    background-color: rgb(184, 184, 184) !important;
+    color: #01377D !important;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-weight: 400 !important;
+}
+
+.tab.active {
+    background-color: #01377D !important;
+    color: white !important;
+}
+
+.tabs button.active {
+    border-bottom: none !important;
+    color: white !important;
+    background-color: #01377D !important;
+}
+  
+  .filter-icon {
+    background-color: black;
+    color: white;
+    border-radius: 100%;
+    padding: 8px 12px;
+    cursor: pointer;
+    
+  }
+  
+  .filter-icon:hover {
+    background-color: grey;
+    color: white;
+    
+  }
+  
+  .modal-content {
+    background-color: black; 
+    color: white; 
+  }
+  
+  
+  .modal-footer .btn {
+    background-color: rgb(183, 231, 249); 
+    color: black; 
+    border: none; 
+  }
+  
+  .modal-footer .btn:hover {
+    background-color: rgb(150, 189, 203); 
+  }
+  
+  .tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.project {
+    padding: 15px 25px;
+    margin-top: 15px;
+    background: white;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.project:hover {
+    transform: scale(1.02);
+}
+
+.project h5{
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.project img{
+    height: 120px;
+    width: 120px;
+    margin: 5px 0px 15px 0px;
+}
+
+.topic-btn {
+    display: inline-block;
+    padding: 5px 20px;
+    font-size: 15px;
+    font-weight: 800;
+    margin-top: 5px;
+    color: black;
+    background-color: yellow;
+    text-decoration: none;
+    border-radius: 50px;
+}
+
+.topic-btn:hover {
+    background-color: #01377D;
+    color: white;
+}
+
+.refresh-icon {
+    cursor: pointer;
+    font-size: 25px;
+    margin-left: 30px;
+}
+
+.refresh-icon:hover {
+    color: red;
+}
+
+.funding-amount {
+    text-align: center;
+}
+
+.funding-amount h5{
+    font-size: 30px;
+    font-weight: 900;
+}
