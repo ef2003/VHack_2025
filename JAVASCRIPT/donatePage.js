@@ -180,18 +180,16 @@ document.addEventListener("DOMContentLoaded", () => {
         return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     }
 
-    // Get the topic from the URL parameter
     const topicFromUrl = getUrlParameter('topic');
-    const defaultTag = topicFromUrl || "all"; // Default to "all" if no topic is specified
+    const defaultTag = topicFromUrl || "all"; 
 
-     const projectTagsSection = document.getElementById("project-tags");
+    const projectTagsSection = document.getElementById("project-tags");
     if (projectTagsSection) {
         projectTagsSection.scrollIntoView({ behavior: "smooth" });
     }
-    // Display projects based on the topic
+ 
     displayProjects(defaultTag);
 
-    // Set the active tag button
     const defaultTagButton = document.querySelector(`.tag[data-tag="${defaultTag}"]`);
     if (defaultTagButton) {
         defaultTagButton.classList.add("active");
