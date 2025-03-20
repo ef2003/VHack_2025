@@ -69,6 +69,10 @@ function goToPhase1() {
     document.getElementById("phase1").classList.remove("hidden");
 }
 
+function submitDonation() {
+    document.getElementById("phase2").classList.add("hidden");
+    document.getElementById("successMessage").classList.remove("hidden");
+}
 
 function convertCryptoToFiat() {
     let cryptoAmount = document.getElementById("cryptoAmount").value;
@@ -208,3 +212,40 @@ function allocatePool() {
         console.log("Checkbox unchecked, values cleared."); // Debugging log
     }
 }
+
+function save() {
+    console.log("The e-receipt is saved successfully!");
+
+    alert("E-Receipt saved successfully!");
+
+    closeModal();
+}
+
+function closeModal() {
+    let modal = document.getElementById("stakeForm"); 
+
+    if (modal) {
+        let bootstrapModal = bootstrap.Modal.getInstance(modal); 
+        if (bootstrapModal) {
+            bootstrapModal.hide(); 
+        } else {
+            modal.style.display = "none"; 
+        }
+
+        document.body.classList.remove("modal-open");
+        document.body.style.overflow = "auto";
+
+        let backdrop = document.querySelector(".modal-backdrop");
+        if (backdrop) {
+            backdrop.remove();
+        }
+
+        document.getElementById("phase1").classList.remove("hidden");
+        document.getElementById("phase2").classList.add("hidden");
+        document.getElementById("successMessage").classList.add("hidden");
+
+    } else {
+        console.error("Modal not found!");
+    }
+}
+
