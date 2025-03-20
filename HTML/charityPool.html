@@ -70,12 +70,6 @@
         <h1>Turn Your Crypto into a <span class="highlight">Force for Good</span></h1>
         <p>Your funds don’t just sit—they grow and create long-term impact.</p>
         <button class="donate-btn" data-bs-toggle="modal" data-bs-target="#stakeForm">Start Staking for Good</button>
-
-        <script>
-            function navigateToPage() {
-                window.location.href = "charityPoolStaking.html";
-            }
-        </script>
     </header>
 
 
@@ -170,94 +164,77 @@
                             <hr class="border-t-2 border-gray-100 my-4">
                         </div>
 
-                        <label><input type="checkbox" id="fullAllocation" onclick="allocateFull()" />
-                            Allocate 100% to Money Market</label><br />
-                        <label><input type="checkbox" id="poolBased" onclick="allocatePool()" />
-                            Allocate based on Pool Allocation</label>
+                        <div class="container">
+                            <div class="allocation-options">
+                                <div class="option">
+                                    <input type="checkbox" id="fullAllocation" onclick="allocateFull()">
+                                    <label for="fullAllocation"> Allocate 100% to Money Market</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" id="poolBased" onclick="allocatePool()">
+                                    <label for="poolBased">Allocate based on Pool Allocation</label>
+                                </div>
+                            </div>                            
+                    
+                            <div class="table-container">
+                                <table id="fundTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Pool</th>
+                                            <th>Market Value</th>
+                                            <th>Pool Allocation</th>
+                                            <th>Grant Allocation (%)</th>
+                                            <th>Amount (<span id="currencySymbol">$</span>)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Money Market</td>
+                                            <td>$9,845.05</td>
+                                            <td>12%</td>
+                                            <td><input type="text" id="moneyMarketAllocation" class="allocation-percent" placeholder="%"></td>
+                                            <td><input type="text" class="allocation-amount" placeholder="$"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Asset Allocation (20% Equity)</td>
+                                            <td>$11,005.50</td>
+                                            <td>13%</td>
+                                            <td><input type="text" class="allocation-percent" placeholder="%"></td>
+                                            <td><input type="text" class="allocation-amount" placeholder="$"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Asset Allocation (70% Equity)</td>
+                                            <td>$12,369.11</td>
+                                            <td>15%</td>
+                                            <td><input type="text" class="allocation-percent" placeholder="%"></td>
+                                            <td><input type="text" class="allocation-amount" placeholder="$"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Asset Allocation (85% Equity)</td>
+                                            <td>$16,336.55</td>
+                                            <td>20%</td>
+                                            <td><input type="text" class="allocation-percent" placeholder="%"></td>
+                                            <td><input type="text" class="allocation-amount" placeholder="$"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Charitable Legacy</td>
+                                            <td>$14,632.24</td>
+                                            <td>18%</td>
+                                            <td><input type="text" class="allocation-percent" placeholder="%"></td>
+                                            <td><input type="text" class="allocation-amount" placeholder="$"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Environmental Impact Access</td>
+                                            <td>$18,211.50</td>
+                                            <td>22%</td>
+                                            <td><input type="text" class="allocation-percent" placeholder="%"></td>
+                                            <td><input type="text" class="allocation-amount" placeholder="$"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
 
-                        <table id="fundTable" class="w-full border-collapse border bg-gray-50 mt-4">
-                            <thead>
-                                <tr class="bg-gray-200">
-                                    <th class="border p-2">Pool</th>
-                                    <th class="border p-2">Market Value</th>
-                                    <th class="border p-2">Pool Allocation</th>
-                                    <th class="border p-2">Grant Allocation (%)</th>
-                                    <th class="border p-2">
-                                        Amount (<span id="currencySymbol">$</span>)
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="text-center">
-                                    <td class="border p-2">Money Market</td>
-                                    <td class="border p-2">$9,845.05</td>
-                                    <td class="border p-2">12%</td>
-                                    <td class="border p-2">
-                                        <input type="text" id="moneyMarketAllocation" class="border p-1 w-16 text-center allocation-percent"
-                                            placeholder="%" />
-                                    </td>
-                                    <td class="border p-2">
-                                        <input type="text" class="border p-1 w-16 text-center allocation-amount"
-                                            placeholder="$" />
-                                    </td>
-                                </tr>
-                                <tr class="text-center">
-                                    <td class="border p-2">Asset Allocation (20% Equity)</td>
-                                    <td class="border p-2">$11,005.50</td>
-                                    <td class="border p-2">13%</td>
-                                    <td class="border p-2">
-                                        <input type="text" class="border p-1 w-16 text-center allocation-percent" placeholder="%" />
-                                    </td>
-                                    <td class="border p-2">
-                                        <input type="text" class="border p-1 w-16 text-center allocation-amount" placeholder="$" />
-                                    </td>
-                                </tr>
-                                <tr class="text-center">
-                                    <td class="border p-2">Asset Allocation (70% Equity)</td>
-                                    <td class="border p-2">$12,369.11</td>
-                                    <td class="border p-2">15%</td>
-                                    <td class="border p-2">
-                                        <input type="text" class="border p-1 w-16 text-center allocation-percent" placeholder="%" />
-                                    </td>
-                                    <td class="border p-2">
-                                        <input type="text" class="border p-1 w-16 text-center allocation-amount" placeholder="$" />
-                                    </td>
-                                </tr>
-                                <tr class="text-center">
-                                    <td class="border p-2">Asset Allocation (85% Equity)</td>
-                                    <td class="border p-2">$16,336.55</td>
-                                    <td class="border p-2">20%</td>
-                                    <td class="border p-2">
-                                        <input type="text" class="border p-1 w-16 text-center allocation-percent" placeholder="%" />
-                                    </td>
-                                    <td class="border p-2">
-                                        <input type="text" class="border p-1 w-16 text-center allocation-amount" placeholder="$" />
-                                    </td>
-                                </tr>
-                                <tr class="text-center">
-                                    <td class="border p-2">Charitable Legacy</td>
-                                    <td class="border p-2">$14,632.24</td>
-                                    <td class="border p-2">18%</td>
-                                    <td class="border p-2">
-                                        <input type="text" class="border p-1 w-16 text-center allocation-percent" placeholder="%" />
-                                    </td>
-                                    <td class="border p-2">
-                                        <input type="text" class="border p-1 w-16 text-center allocation-amount" placeholder="$" />
-                                    </td>
-                                </tr>
-                                <tr class="text-center">
-                                    <td class="border p-2">Environmental Impact Access</td>
-                                    <td class="border p-2">$18,211.50</td>
-                                    <td class="border p-2">22%</td>
-                                    <td class="border p-2">
-                                        <input type="text" class="border p-1 w-16 text-center allocation-percent" placeholder="%" />
-                                    </td>
-                                    <td class="border p-2">
-                                        <input type="text" class="border p-1 w-16 text-center allocation-amount" placeholder="$" />
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
                         <div class="button-container">
                             <button type="button" onclick="goToPhase1()" class="form-btn">
                                 ⇽ Previous
@@ -266,7 +243,35 @@
                                 Submit Donation
                             </button>
                         </div>
-                        
+                    </div>
+
+                    <!-- Success Message -->
+                    <div id="successMessage" class="successMessageContent hidden">
+                        <h2>🎉 Donation Successful! Here is your E-Receipt:</h2>
+
+                        <!-- E-Receipt -->
+                        <div class="e-receipt">
+                            <h3>📜 CharityChain E-Receipt</h3>
+                            <div class="receipt-content">
+                                <p><span>Transaction ID:</span> <span id="txHash">0xdCB551745523dC12f7E985d328b5f123301A86cB</span></p>
+                                <p><span>Wallet Address:</span> <span id="walletAddress">0x8d89058989989D8A65B24c3A5864d7913FbFd045</span></p>
+                                <p><span>Staking Pool:</span> <span id="stakingPool">Environmental Impact Fund</span></p>
+                                <p><span>Amount Staked:</span> <span id="stakedAmount">5.0 ETH</span></p>
+                                <p><span>Date & Time:</span> <span id="timestamp">March 20, 2025, 10:30 AM UTC</span></p>
+                            </div>
+                            <hr>
+                            <p class="thank-you">Thank you for making an impact through CharityChain! 🙌</p>
+                        </div>
+
+                        <div class="button-container">
+                            <button type="button" onclick="save()" class="form-btn">
+                                Save ⎙
+                            </button>
+                            <button type="button" onclick="closeModal()" class="form-btn">
+                                Close
+                            </button>
+                        </div>
+
                     </div>
 
                 </div>
@@ -274,25 +279,53 @@
         </div>
     </div>
 
-    <!-- Impact Stories -->
+    <!-- Impact Stories Section -->
     <section class="impact">
-        <h2>Impact Stories</h2>
-        <video controls>
-            <source src="impact-story.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <div class="impact-container">
+            <h2 class="impact-title">🌍 Real Stories, Real Impact</h2>
+            <p class="impact-subtitle">
+                Discover how your contributions are making a difference. Watch inspiring stories from beneficiaries.
+            </p>
+
+            <div class="video-wrapper">
+                <video controls poster="../images/ad5.jpg">
+                    <source src="../videos/staking_vid1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
     </section>
+
 
 
     <!-- Security & Transparency -->
     <section class="security">
-        <h2>Security & Transparency</h2>
-        <ul>
-            <li>✔️ Audited Smart Contracts</li>
-            <li>✔️ Real-time Blockchain Transactions</li>
-            <li>✔️ Verified Charities</li>
-        </ul>
+        <div class="security-container">
+            <h2>We Concern about your Security & Transparency</h2>
+            <p>Your donations are safeguarded with cutting-edge blockchain technology.</p>
+
+            <div class="security-features">
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Audited Smart Contracts</h3>
+                    <p>Our blockchain contracts are independently audited to ensure integrity and trust.</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Real-time Blockchain Transactions</h3>
+                    <p>Track your contributions on the blockchain for full transparency and security.</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Verified Charities</h3>
+                    <p>Only legitimate, vetted organizations receive donations, ensuring your funds create impact.</p>
+                </div>
+            </div>
+        </div>
     </section>
+
 
 
     <!-- Footer -->

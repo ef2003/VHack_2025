@@ -133,3 +133,10 @@
     font-size: 30px;
     font-weight: 900;
 }
+
+footer {
+  background: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}

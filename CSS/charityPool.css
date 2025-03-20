@@ -115,6 +115,7 @@ body {
     cursor: pointer;
     width: 500px;
     color: #094774;
+    background-color: #dbe7ef;
     text-align: center;
     transition: all 0.2s ease-in-out;
     position: relative;
@@ -209,22 +210,21 @@ body {
     color: #90ebe6;
 }
 
-
 .modal-title h2{
     text-transform: uppercase;
     font-size: 30px;
     font-weight: 900;
     padding-top: 20px;
     padding-bottom: 10px;
-    color: #335a7a;
+    color: #0e8294;
     
 }
 
 .form-desc h2{
     font-size: 20px;
     font-weight: 700;
-    color: #a3b8c5;
-
+    color: #69767e;
+    padding-top: 20px;
 }
 
 
@@ -238,16 +238,15 @@ body {
 
 .stake-form {
     background: #ffffff;
-    padding: 40px;
+    padding: 30px 20px;
     border-radius: 12px;
     text-align: left;
     width: 100%;
-    max-width: 600px;
+    max-width: 700px;
     margin: 20px auto; 
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
     align-items: stretch;
 }
-
 
 .stake-form label {
     font-weight:700;
@@ -354,20 +353,307 @@ input, select {
     max-width: 300px;
 }
 
+.allocation-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    max-width: 100%;
+    margin: 20px auto;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    color: #066b61;
+    font-weight: 500;
+    padding: 8px;
+    border-radius: 6px;
+    transition: background 0.2s ease-in-out;
+}
+
+.option input {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #066b61;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+.option input:checked {
+    background: #066b61;
+    border-color: #066b61;
+}
+
+.option input:checked::after {
+    content: '✓';
+    font-size: 14px;
+    color: rgb(241, 241, 241);
+    position: absolute;
+    left: 7px;
+    top: 1px;
+}
+
+.option input:hover {
+    border-color: #073e38;
+}
+
+.option label {
+    cursor: pointer;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+
+.table-container {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 10px;
+}
+
+
+#fundTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#fundTable thead {
+    background-color: #0a6565;
+    color: white;
+    text-align: left;
+}
+
+#fundTable th, #fundTable td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+#fundTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#fundTable tbody tr:hover {
+    background-color: #e2e2e2;
+    cursor: pointer;
+}
+
+#fundTable th {
+    font-weight: bold;
+}
+
+
+.input-percent, .input-amount {
+    width: 80px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.input-percent:focus, .input-amount:focus {
+    border-color: #94b395;
+    outline: none;
+}
+
+
+input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+
+@media (max-width: 900px) {
+    #fundTable th, #fundTable td {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .input-percent, .input-amount {
+        width: 70px;
+    }
+}
+
+@media (max-width: 900px) {
+    #fundTable th, #fundTable td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .input-percent, .input-amount {
+        width: 60px;
+    }
+}
+
+.successMessageContent h2 {
+    font-size: 20px;
+    padding: 20px;
+    margin: 0 40px;
+    text-align: left;
+}
+
+.e-receipt {
+    background: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 40px 10px;
+    max-width: 80%;
+    margin: 20px auto;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.e-receipt h3 {
+    color: #467c97;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    border-bottom: 2px solid #3d5662;
+    padding-bottom: 20px;
+}
+
+.receipt-content {
+    text-align: left;
+    font-size: 14px;
+    margin: 15px 15px;
+    padding-top: 10px;
+}
+
+.receipt-content p {
+    display: flex;
+    justify-content: space-between;
+    margin: 6px 0;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+.receipt-content span {
+    color: #787878;
+    font-weight: normal;
+    font-size: 15px;
+}
+
+
+.e-receipt hr {
+    border: 1px dashed #ccc;
+    margin: 15px 0;
+}
+
+.thank-you {
+    font-size: 14px;
+    color: #a0a0a0;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+
 .impact {
-    padding: 40px;
+    background: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.impact-container {
+    max-width: 80%;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    animation: floatButton 1.2s ease-in-out infinite alternate;
 }
 
 
-video {
-    width: 80%;
-    max-width: 600px;
+.video-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
 }
 
+.video-wrapper video {
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
 
 .security {
-    padding: 40px;
-    background: #ddd;
+    background: #ebebeb;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.security-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.security h2 {
+    text-transform: uppercase;
+    font-size: 45px;
+    font-weight: 900;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.security p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.security-features {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.feature-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 280px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card i {
+    font-size: 2.5rem;
+    color: #3498db;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 1rem;
+    color: #666;
 }
 
 
@@ -375,6 +661,7 @@ footer {
     background: #333;
     color: white;
     padding: 20px;
+    text-align: center;
 }
 
 .hidden {
