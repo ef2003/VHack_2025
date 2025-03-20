@@ -44,7 +44,9 @@
                             </div>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-medal"></i> Badge</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#badgeModal">
+                                <i class="fas fa-medal"></i> Badge
+                            </a></li>
                             <li><a class="dropdown-item" href="#"><i class="fas fa-user"></i> Profile</a></li>
                             <li><a class="dropdown-item" href="#"><i class="fas fa-wallet"></i> Connect Wallet</a></li>
                             <li><a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Settings</a></li>
@@ -65,6 +67,34 @@
         </div>
     </nav>
 
+    <div class="modal fade" id="badgeModal" tabindex="-1" aria-labelledby="badgeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="badgeModalLabel">Your NFT Badges</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p>Congratulations!</p>
+                    <div class="badge-container">
+                        <div class="badge-item">
+                            <img src="../images/badge_bronze.jpg" alt="Bronze Badge" class="nft-badge">
+                            <p style="font-size: 15px; font-weight: 800; margin-top: 15px;">Helping Hand Award</p>
+                        </div>
+                        <div class="badge-item">
+                            <img src="../images/badge_gold.jpg" alt="Gold Badge" class="nft-badge">
+                            <p style="font-size: 15px; font-weight: 800; margin-top: 15px;">Champion of Charity</p>
+                        </div>
+                        <div class="badge-item">
+                            <img src="../images/badge_silver.jpg" alt="Silver Badge" class="nft-badge">
+                            <p style="font-size: 15px; font-weight: 800; margin-top: 15px;">Humanitarian Hero</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <h1>Make an Impact</h1>
@@ -76,8 +106,63 @@
     <!-- Recommended projects for donor -->
     <section class="recommended-projects">
         <h2>Recommended Projects</h2>
+            <div class="project-container">
+                <div class="project-scroll">
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h3>Save the Rainforest</h3>
+                            <img src="../images/rainforest.jpg">
+                            <p><b>Organization: </b>Green Peace</p>
+                            <p>A conservation project focused on protecting rainforests, preventing deforestation, restoring ecosystems, and preserving wildlife for future generations.</p>
+                        </div>
+                        <div class="stars">⭐⭐⭐⭐⭐ <br> <a href="#" class="topics">#Environment Conservation</a></div>
+                        
+                    </div>
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h3>Rescue Abandoned Pets</h3>
+                            <img src="../images/rescue_pets.jpg">
+                            <p><b>Organization: </b>Four Paws International</p>
+                        </div>
+                        <div class="stars">⭐⭐⭐⭐ <br> <a href="#" class="topics">#Animal Rescue</a>
+                            <a href="#" class="topics">#Environment Conservation</a></div>
+                        
+                    </div>
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h3>Educate a Child</h3>
+                            <img src="../images/educate_child.jpg">
+                            <p><b>Organization: </b>UNICEF (United Nations Children's Fund)</p>
+                        </div>
+                        <div class="stars">⭐⭐⭐⭐ <br> <a href="#" class="topics">#Children Welfare</a>
+                            <a href="#" class="topics">#Hunger Relief</a></div>
+                        
+                    </div>
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h3>Thermo Health</h3>
+                            <img src="../images/thermo_health.jpg">
+                            <p><b>Organization: </b>World Health Organization (WHO)</p>
+                        </div>
+                        <div class="stars">⭐⭐⭐⭐ <br> <a href="#" class="topics">#Hunger Relief</a></div>
+                        
+                    </div>
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h3>Zero Hunger Tech</h3>
+                            <i></i>
+                            <img src="../images/disaster_relief.jpg">
+                            <p><b>Organization: </b>Global FoodBanking Network (GFN)</p>
+                        </div>
+                        <div class="stars">⭐⭐⭐⭐⭐ <br> <a href="#" class="topics">#Animal Rescue</a></div>
+                        
+                    </div>
+                   
+                </div>
+            </div>
+        
 
-        <div class="scroll-container">
+        <!-- <div class="scroll-container">
             <div class="project-card" data-tags="environment">
                 <h3>Save the Rainforest</h3>
                 <img src="../images/rainforest.jpg" alt="rainforest">
@@ -93,7 +178,8 @@
                 <img src="../images/educate_child.jpg" alt="children">
                 <p>Provide education to underprivileged children.</p>
             </div>
-        </div>
+            
+        </div> -->
     </section>
     
     <!-- List of project tags -->

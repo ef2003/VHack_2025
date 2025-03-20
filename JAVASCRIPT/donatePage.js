@@ -1,3 +1,36 @@
+const organizerScroll = document.querySelector('.project-container');
+
+let isDragging = false;
+let startX;
+let scrollLeft;
+
+organizerScroll.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    organizerScroll.classList.add('active');
+    startX = e.pageX - organizerScroll.offsetLeft;
+    scrollLeft = organizerScroll.scrollLeft;
+});
+
+organizerScroll.addEventListener('mouseleave', () => {
+    isDragging = false;
+    organizerScroll.classList.remove('active');
+});
+
+organizerScroll.addEventListener('mouseup', () => {
+    isDragging = false;
+    organizerScroll.classList.remove('active');
+});
+
+organizerScroll.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - organizerScroll.offsetLeft;
+    const move = (x - startX) * 2; 
+    organizerScroll.scrollLeft = scrollLeft - move;
+});
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const projectsData = [
         {

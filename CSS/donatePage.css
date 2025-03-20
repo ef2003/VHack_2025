@@ -10,7 +10,7 @@ header {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    color: white;
+    color: rgb(143, 143, 143);
     text-align: left;
     padding: 100px 50px;
 }
@@ -22,27 +22,21 @@ header h1, header p {
 }
 
 header h1:hover, header p:hover {
-    transform: scale(1.05); /* Slightly enlarge the text */
-    color: #2c3e50; /* Change text color on hover */
+    transform: scale(1.05); 
+    color: #2c3e50;
 }
 
-
-.project-card img {
-    width: 100%; /* Makes image responsive within its container */
-    height: auto; /* Maintains aspect ratio */
-    max-width: 300px; /* Ensures images do not get too large */
-    border-radius: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.project-card{
+    transition: transform 0.3s;
 }
 
-.recommended-projects h2, .project-tags h2, .project-list h2 {
-    font-size: x-large;
-    font-weight: bold;
+.project-card:hover {
+    transform: scale(1.03);
 }
 
 .project-card h3 {
-    font-size: larger;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .project-card p {
@@ -51,36 +45,91 @@ header h1:hover, header p:hover {
 
 .recommended-projects, .project-tags, .project-list {
     margin: 20px;
-    padding: 20px;
+    margin-bottom: 30px;
+    padding: 25px 35px;
     background: white;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.scroll-container {
-    display: flex;
+.recommended-projects h2{
+    padding-bottom: 10px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.project-container {
     overflow-x: auto;
-    padding: 10px;
-    gap: 25px;
-    scroll-behavior: smooth;
+    display: flex;
+    cursor: grab;
+    user-select: none;
+}
+
+.project-scroll {
+    display: flex;
+    gap: 30px;
 }
 
 .project-card {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    justify-content: space-between; /* Push elements apart */
-    min-width: 250px;
-    padding: 20px;
     background: #01377D;
-    color: white;
+    border: solid 2px black;
     border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
+    width: 450px;
+    padding: 20px;
 }
 
-.project-card:hover {
-    transform: scale(1.05);
-    background: #1f5192;
+.project-info h3{
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    padding-bottom: 10px;
 }
+
+.project-info img{
+    width: 350px;
+    height: 220px;
+}
+
+.project-info p:first-of-type {
+    padding-top: 20px;
+    font-size: 18px;
+}
+
+.project-info p{
+    color: white;
+    text-align: start;
+    font-size: 16px;
+}
+
+
+.stars {
+    color: yellow;
+    font-size: 25px;
+    text-align: left; 
+    display: block; 
+}
+
+.topics {
+    display: inline-block;
+    padding: 10px 10px;
+    font-size: 12px;
+    margin: 20px 0px 20px 0px;
+    color: black;
+    background-color: yellow;
+    text-decoration: none;
+    border-radius: 50px;
+}
+
+.topics:hover {
+    background-color: rgb(183, 231, 249) ; 
+    color: black; 
+}
+
+
+.project-container::-webkit-scrollbar {
+    display: none;
+}
+
 
 .tags-container {
     display: flex;

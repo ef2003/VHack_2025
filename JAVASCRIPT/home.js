@@ -83,7 +83,7 @@ document.getElementById("amountInput").addEventListener("input", function () {
 let index = 0;
         const reviewWrapper = document.getElementById("donorReviewWrapper");
         const reviewCards = document.querySelectorAll(".donor-review-card");
-        const cardWidth = reviewCards[0].offsetWidth + 20; // Adjust for margin
+        const cardWidth = reviewCards[0].offsetWidth + 20;
         const maxIndex = reviewCards.length - 3;
 
         document.getElementById("nextBtn").addEventListener("click", function() {
