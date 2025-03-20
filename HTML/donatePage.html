@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="../CSS/navBar.css">
     <link rel="stylesheet" href="../CSS/donatePage.css">
+    <link rel="stylesheet" href="../CSS/donation.css">
 </head>
 
 <body>
@@ -45,8 +46,8 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#badgeModal">
-                                <i class="fas fa-medal"></i> Badge
-                            </a></li>
+                                    <i class="fas fa-medal"></i> Badge
+                                </a></li>
                             <li><a class="dropdown-item" href="#"><i class="fas fa-user"></i> Profile</a></li>
                             <li><a class="dropdown-item" href="#"><i class="fas fa-wallet"></i> Connect Wallet</a></li>
                             <li><a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Settings</a></li>
@@ -102,86 +103,123 @@
 
         <!-- <img src="../images/green_donation_draw.jpeg" alt="green"> -->
     </header>
-    
+
     <!-- Recommended projects for donor -->
     <section class="recommended-projects">
         <h2>Recommended Projects</h2>
-            <div class="project-container">
-                <div class="project-scroll">
-                    <div class="project-card">
-                        <div class="project-info">
-                            <h3>Save the Rainforest</h3>
-                            <img src="../images/rainforest.jpg">
-                            <p><b>Organization: </b>Green Peace</p>
-                            <p>A conservation project focused on protecting rainforests, preventing deforestation, restoring ecosystems, and preserving wildlife for future generations.</p>
-                        </div>
-                        <div class="stars">⭐⭐⭐⭐⭐ <br> <a href="#" class="topics">#Environment Conservation</a></div>
-                        
+        <div class="project-container">
+            <div class="project-scroll">
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Save the Rainforest</h3>
+                        <img src="../images/rainforest.jpg">
+                        <p><b>Organization: </b>Green Peace</p>
+                        <p>A conservation project focused on protecting rainforests, preventing deforestation, restoring
+                            ecosystems, and preserving wildlife for future generations.</p>
                     </div>
-                    <div class="project-card">
-                        <div class="project-info">
-                            <h3>Rescue Abandoned Pets</h3>
-                            <img src="../images/rescue_pets.jpg">
-                            <p><b>Organization: </b>Four Paws International</p>
-                        </div>
-                        <div class="stars">⭐⭐⭐⭐ <br> <a href="#" class="topics">#Animal Rescue</a>
-                            <a href="#" class="topics">#Environment Conservation</a></div>
-                        
+                    <div class="stars">⭐⭐⭐⭐⭐ <br> <a href="#" class="topics">#Environment Conservation</a></div>
+                    <a href="#" class="donate-btn">Donate Now</a>
+                </div>
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Rescue Abandoned Pets</h3>
+                        <img src="../images/rescue_pets.jpg">
+                        <p><b>Organization: </b>Four Paws International</p>
+                        <p>A project dedicated to rescuing, rehabilitating, and rehoming abandoned pets, ensuring their
+                            safety, health, and a loving future.</p>
                     </div>
-                    <div class="project-card">
-                        <div class="project-info">
-                            <h3>Educate a Child</h3>
-                            <img src="../images/educate_child.jpg">
-                            <p><b>Organization: </b>UNICEF (United Nations Children's Fund)</p>
-                        </div>
-                        <div class="stars">⭐⭐⭐⭐ <br> <a href="#" class="topics">#Children Welfare</a>
-                            <a href="#" class="topics">#Hunger Relief</a></div>
-                        
+                    <div class="stars">⭐⭐⭐⭐ <br> <a href="#" class="topics">#Animal Rescue</a>
                     </div>
-                    <div class="project-card">
-                        <div class="project-info">
-                            <h3>Thermo Health</h3>
-                            <img src="../images/thermo_health.jpg">
-                            <p><b>Organization: </b>World Health Organization (WHO)</p>
-                        </div>
-                        <div class="stars">⭐⭐⭐⭐ <br> <a href="#" class="topics">#Hunger Relief</a></div>
-                        
+                    <a href="#" class="donate-btn">Donate Now</a>
+                </div>
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Zero Hunger Children</h3>
+                        <i></i>
+                        <img src="../images/hunger_relief">
+                        <p><b>Organization: </b>Global FoodBanking Network (GFN)</p>
+                        <p>A project to eliminate hunger through sustainable food distribution, reducing waste, and
+                            ensuring access to nutritious meals for all.</p>
                     </div>
-                    <div class="project-card">
-                        <div class="project-info">
-                            <h3>Zero Hunger Tech</h3>
-                            <i></i>
-                            <img src="../images/disaster_relief.jpg">
-                            <p><b>Organization: </b>Global FoodBanking Network (GFN)</p>
-                        </div>
-                        <div class="stars">⭐⭐⭐⭐⭐ <br> <a href="#" class="topics">#Animal Rescue</a></div>
-                        
+                    <div class="stars">⭐⭐⭐⭐ <br> <a href="#" class="topics">#Children Welfare</a>
+                        <a href="#" class="topics">#Hunger Relief</a>
                     </div>
-                   
+                    <a href="#" class="donate-btn">Donate Now</a>
+                </div>
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Thermo Health</h3>
+                        <img src="../images/thermo_health.jpg">
+                        <p><b>Organization: </b>World Health Organization (WHO)</p>
+                        <p>A research project exploring thermotherapy’s impact on pain relief, healing, and overall
+                            health using advanced thermal treatment technologies.</p>
+                    </div>
+                    <div class="stars">⭐⭐⭐⭐ <br> <a href="#" class="topics">#Health Research</a></div>
+                    <a href="#" class="donate-btn">Donate Now</a>
+                </div>
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Educate a Child</h3>
+                        <img src="../images/educate_child.jpg">
+                        <p><b>Organization: </b>UNICEF (United Nations Children's Fund)</p>
+                        <p>A project providing education, resources, and opportunities to underprivileged children,
+                            empowering them for a brighter future.</p>
+                    </div>
+                    <div class="stars">⭐⭐⭐⭐⭐ <br> <a href="#" class="topics">#Children Welfare</a></div>
+                    <a href="#" class="donate-btn">Donate Now</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-width">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="donationModalLabel">Donation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center d-flex mb-4 gap-2">
+                        <button id="oneTimeBtn" class="btn w-100 active-btn">One-time</button>
+                        <button id="monthlyBtn" class="btn w-100 inactive-btn">Monthly</button>
+                    </div>
+
+
+                    <p>Amount</p>
+                    <div class="mt-3">
+                        <div class="mb-3 text-center">
+                            <select id="currencySelect" class="form-select w-50 mx-auto">
+                                <option value="" disabled selected>Select Currency</option>
+                                <option value="MYR">MYR - Malaysia Ringgit</option>
+                                <option value="USD">USD - US Dollars</option>
+                                <option value="CNY">CNY - Chinese Yuan</option>
+                            </select>
+                        </div>
+                        <div id="amountContainer" class="d-none">
+                            <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                <button class="btn amount-btn" onclick="setAmount(1000)">1,000</button>
+                                <button class="btn amount-btn" onclick="setAmount(500)">500</button>
+                                <button class="btn amount-btn" onclick="setAmount(350)">350</button>
+                                <button class="btn amount-btn" onclick="setAmount(250)">250</button>
+                                <button class="btn amount-btn" onclick="setAmount(100)">100</button>
+                                <button class="btn amount-btn" onclick="setAmount(50)">50</button>
+                            </div>
+                            <div class="mt-3 text-center">
+                                <input type="number" id="amountInput" class="form-control w-50 mx-auto text-center"
+                                    placeholder="Enter Amount" value="0">
+                            </div>
+                            <div class="mt-4 text-center">
+                                <button class="btn donate-btn1 w-100">Donate</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        
+        </div>
+    </div>
 
-        <!-- <div class="scroll-container">
-            <div class="project-card" data-tags="environment">
-                <h3>Save the Rainforest</h3>
-                <img src="../images/rainforest.jpg" alt="rainforest">
-                <p>Protect the lungs of our planet.</p>
-            </div>
-            <div class="project-card" data-tags="animal welfare">
-                <h3>Rescue Abandoned Pets</h3>
-                <img src="../images/rescue_pets.jpg" alt="pets">
-                <p>Help shelter and care for rescued animals.</p>
-            </div>
-            <div class="project-card" data-tags="children welfare">
-                <h3>Educate a Child</h3>
-                <img src="../images/educate_child.jpg" alt="children">
-                <p>Provide education to underprivileged children.</p>
-            </div>
-            
-        </div> -->
-    </section>
-    
     <!-- List of project tags -->
     <section class="project-tags">
         <h2>Explore by Cause</h2>
@@ -193,7 +231,7 @@
             <button class="tag" data-tag="hunger relief">Hunger Relief</button>
         </div>
     </section>
-    
+
     <!-- List of projects info -->
     <section class="project-list">
         <h2>Projects</h2>
@@ -201,7 +239,7 @@
             <!-- Filtered projects will appear here -->
         </div>
     </section>
-    
+
     <script src="../JAVASCRIPT/donatePage.js"></script>
     <script src="../JAVASCRIPT/navBar.js"></script>
 </body>

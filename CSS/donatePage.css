@@ -26,23 +26,6 @@ header h1:hover, header p:hover {
     color: #2c3e50;
 }
 
-.project-card{
-    transition: transform 0.3s;
-}
-
-.project-card:hover {
-    transform: scale(1.03);
-}
-
-.project-card h3 {
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.project-card p {
-    font-size: medium;
-}
-
 .recommended-projects, .project-tags, .project-list {
     margin: 20px;
     margin-bottom: 30px;
@@ -76,6 +59,18 @@ header h1:hover, header p:hover {
     border-radius: 10px;
     width: 450px;
     padding: 20px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+}
+
+.project-card h3 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.project-card p {
+    font-size: medium;
 }
 
 .project-info h3{
@@ -101,7 +96,6 @@ header h1:hover, header p:hover {
     font-size: 16px;
 }
 
-
 .stars {
     color: yellow;
     font-size: 25px;
@@ -125,10 +119,28 @@ header h1:hover, header p:hover {
     color: black; 
 }
 
-
 .project-container::-webkit-scrollbar {
     display: none;
 }
+
+.donate-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    background-color: #26B170; 
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s ;
+    align-self: center; 
+}
+
+.donate-btn:hover {
+    color: black;
+    transform: scale(1.05);
+}
+
 
 
 .tags-container {
