@@ -197,6 +197,17 @@ header h1:hover, header p:hover {
     transform: scale(1.03);
 }
 
+.project-item .refresh-icon{
+    font-size: 25px;
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+.project-item .refresh-icon:hover{
+    color: red;
+}
+
+
 .project-item div h3 {
     font-size: 30px;
     font-weight: bold;
