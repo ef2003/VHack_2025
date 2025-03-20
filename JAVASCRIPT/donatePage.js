@@ -32,8 +32,16 @@ organizerScroll.addEventListener('mousemove', (e) => {
 document.addEventListener("DOMContentLoaded", () => {
     const projectsData = [
         {
+            name: "Planet Revive",
+            organization: "Greenpeace",
+            image: "../images/ad2.jpg",
+            tags: ["all", "environment"],
+            rating: "★★★★☆",
+            description: "Preserving nature through reforestation, sustainable living initiatives, and climate change awareness. Our mission is to create a greener future by reducing pollution and protecting biodiversity."
+        },
+        {
             name: "Save the Rainforest",
-            organization: "Green Peace",
+            organization: "Greenpeace",
             image: "../images/rainforest.jpg",
             tags: ["all", "environment"],
             rating: "★★★★★",
@@ -56,20 +64,28 @@ document.addEventListener("DOMContentLoaded", () => {
             description: "The world's rainforests are disappearing at an alarming rate due to deforestation, illegal logging, and climate change. This project focuses on preserving the remaining rainforests by funding reforestation initiatives, wildlife protection programs, and local community engagement to ensure sustainable conservation. Your donation will help protect biodiversity, absorb carbon emissions, and preserve the lungs of our planet for future generations."
         },
         {
+            name: "Deep Blue Hope",
+            organization: "Coral Reef Alliance",
+            image: "../images/ad3.jpg",
+            tags: ["all", "ocean conservation"],
+            rating: "★★★★☆",
+            description: "Restore marine ecosystems, combat ocean pollution, and protect endangered sea life. Through cleanup drives, awareness campaigns, and conservation efforts, we aim to safeguard our oceans for future generations."
+        },
+        {
+            name: "Hope for Paws",
+            organization: "ASPCA",
+            image: "../images/ad1.jpeg",
+            tags: ["all", "animal rescue"],
+            rating: "★★★★☆",
+            description: "Rescuing, rehabilitating, and rehoming stray and endangered animals. We work to prevent animal cruelty, promote responsible pet ownership, and advocate for stronger animal protection laws."
+        },
+        {
             name: "Rescue Abandoned Pets",
             organization: "Four Paws International",
             image: "../images/rescue_pets.jpg",
             tags: ["all", "animal rescue"],
             rating: "★★★★☆",
             description: "A project dedicated to rescuing, rehabilitating, and rehoming abandoned pets, ensuring their safety, health, and a loving future."
-        },
-        {
-            name: "We Care Pets",
-            organization: "Animal Care Foundation",
-            image: "../images/dog_shelter.jpg",
-            tags: ["all", "animal rescue"],
-            rating: "★★★★☆",
-            description: "Education is the key to breaking the cycle of poverty, yet millions of children worldwide lack access to basic schooling. This project provides free educational resources, school supplies, and scholarships to underprivileged children, empowering them with knowledge and skills for a brighter future. Your donation helps fund school programs, teacher training, and infrastructure improvements in disadvantaged communities."
         },
         {
             name: "Educate a Child",
@@ -79,13 +95,15 @@ document.addEventListener("DOMContentLoaded", () => {
             rating: "★★★★★",
             description: "A project providing education, resources, and opportunities to underprivileged children, empowering them for a brighter future."
         },
+        
+        
         {
-            name: "Educate a Child",
+            name: "Children Education",
             organization: "Future Bright",
             image: "../images/child_edu.jpg",
             tags: ["all", "children welfare"],
             rating: "★★★★☆",
-            description: "Food insecurity affects millions of families worldwide, leaving children and adults malnourished and vulnerable to diseases. This project provides emergency food assistance, nutritional education, and sustainable agricultural solutions to help families gain long-term food security. Your donation will help distribute essential meals, support community kitchens, and fund programs that teach self-sufficiency."
+            description: "Education is the key to breaking the cycle of poverty, yet millions of children worldwide lack access to basic schooling. This project provides free educational resources, school supplies, and scholarships to underprivileged children, empowering them with knowledge and skills for a brighter future. Your donation helps fund school programs, teacher training, and infrastructure improvements in disadvantaged communities."
         },
         {
             name: "Zero Hunger Children",
@@ -103,14 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
             rating: "★★★★★",
             description: "Hunger is a daily reality for millions of people, with children and the elderly being the most vulnerable. This project distributes emergency food packs, supports local food banks, and funds sustainable agricultural initiatives to combat malnutrition. Your donation will help provide meals to families in crisis, invest in farming programs, and create long-term solutions to food insecurity."
         },
-        {
-            name: "Clean Water for All",
-            organization: "Water for Life",
-            image: "../images/clean_water.jpg",
-            tags: ["all", "environment"],
-            rating: "★★★★☆",
-            description: "Access to clean water is a basic human right, yet millions still suffer from waterborne diseases due to contaminated sources. This project funds the construction of wells, purification systems, and water distribution in remote and underserved areas. Your contribution can bring safe, drinkable water to families, improving their health, education, and overall quality of life."
-        },
+    
         {
             name: "Protect Endangered Species",
             organization: "Wildlife Conservation Network",
@@ -140,6 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const projectsContainer = document.getElementById("projects-container");
     const tagButtons = document.querySelectorAll(".tag");
 
+
     function displayProjects(tag) {
         projectsContainer.innerHTML = "";
         const filteredProjects = projectsData.filter(project => project.tags.includes(tag));
@@ -161,11 +173,29 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const defaultTag = "all";
+    function getUrlParameter(name) {
+        name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+        const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        const results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Get the topic from the URL parameter
+    const topicFromUrl = getUrlParameter('topic');
+    const defaultTag = topicFromUrl || "all"; // Default to "all" if no topic is specified
+
+     const projectTagsSection = document.getElementById("project-tags");
+    if (projectTagsSection) {
+        projectTagsSection.scrollIntoView({ behavior: "smooth" });
+    }
+    // Display projects based on the topic
     displayProjects(defaultTag);
 
+    // Set the active tag button
     const defaultTagButton = document.querySelector(`.tag[data-tag="${defaultTag}"]`);
-    defaultTagButton.classList.add("active");
+    if (defaultTagButton) {
+        defaultTagButton.classList.add("active");
+    }
 
     tagButtons.forEach(button => {
         button.addEventListener("click", () => {
@@ -174,6 +204,8 @@ document.addEventListener("DOMContentLoaded", () => {
             displayProjects(button.dataset.tag);
         });
     });
+
+    
 });
 
 document.addEventListener("DOMContentLoaded", function () {
