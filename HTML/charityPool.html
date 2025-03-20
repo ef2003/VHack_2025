@@ -65,12 +65,11 @@
         </div>
     </nav>
 
-
     <!-- Hero Section -->
     <header class="hero">
         <h1>Turn Your Crypto into a <span class="highlight">Force for Good</span></h1>
         <p>Your funds don’t just sit—they grow and create long-term impact.</p>
-        <button class="donate-btn" onclick="navigateToPage()">Start Staking for Good</button>
+        <button class="donate-btn" data-bs-toggle="modal" data-bs-target="#stakeForm">Start Staking for Good</button>
 
         <script>
             function navigateToPage() {
@@ -113,23 +112,167 @@
 
 
     <!-- Staking Form -->
-    <!-- <section class="staking-form">
-        <h2>Stake & Make an Impact</h2>
-        <label for="amount">Amount to Stake (USDT):</label>
-        <input type="number" id="amount" placeholder="Enter amount" required>
+    <div class="modal fade" id="stakeForm" tabindex="-1" aria-labelledby="stakeFormLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="modal-title">
+                        <h2>Staking Form</h2>
+                    </div>
+                    <!-- phase 1 -->
+                    <div id="phase1" class="stake-form">
+                        <form>
+                            <div class="form-desc">
+                                <h2>Part A: Investment Details</h2>
+                                <hr class="border-t-2 border-gray-100 my-4">
+                            </div>
+                            <label class="block text-gray-700">Crypto Amount (USDT)</label>
+                            <input type="number" id="cryptoAmount" class="w-full border p-2 rounded mb-3" placeholder="Enter USDT"
+                                oninput="convertCryptoToFiat()" />
 
-        <label for="cause">Choose Impact Pool:</label>
-        <select id="cause">
-            <option>Education</option>
-            <option>Healthcare</option>
-            <option>Climate Action</option>
-        </select>
+                            <label class="block text-gray-700">Fiat Currency</label>
+                            <select id="fiatCurrency" class="w-full border p-2 rounded mb-3" onchange="convertCryptoToFiat()">
+                                <option value="USD" selected>USD ($)</option>
+                                <option value="EUR">EUR (€)</option>
+                                <option value="GBP">GBP (£)</option>
+                                <option value="MYR">RM (MYR)</option>
+                            </select>
 
+                            <label class="block text-gray-700">Fiat Amount</label>
+                            <input type="text" id="fiatAmount" class="w-full border p-2 rounded mb-3" placeholder="Auto-calculated" readonly />
 
-        <button onclick="stakeFunds()">Stake Now</button>
-        <p id="confirmation-message"></p>
-    </section> -->
+                            <label class="block text-gray-700">Investment Type</label>
+                            <select id="investmentType" class="w-full border p-2 rounded mb-3">
+                                <option value="">Select investment type</option>
+                                <option>🌱 Microfinance Projects (Invest in small businesses, social enterprises)</option>
+                                <option>🏥 Healthcare & Medical Research (Impact-driven medical projects)</option>
+                                <option>🌍 Environmental & Sustainability Funds (Green energy, conservation projects)</option>
+                                <option>🎓 Education & Skill Development (Scholarships, training programs)</option>
+                                <option>🏡 Housing & Community Development (Affordable housing, rural projects)</option>
+                            </select>
 
+                            <label class="block text-gray-700">Your Name</label>
+                            <input type="text" id="name" class="w-full border p-2 rounded mb-3" placeholder="Enter your name" />
+
+                            <label class="block text-gray-700">Your Address</label>
+                            <input type="text" id="address" class="w-full border p-2 rounded mb-3" placeholder="Enter your address" />
+
+                            <button type="button" onclick="goToPhase2()" class="next-btn">
+                                Next ⇾
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Phase 2: Allocate Fund -->
+                    <div id="phase2" class="stake-form hidden">
+                        <div class="form-desc">
+                            <h2>Part B: Allocate Fund</h2>
+                            <hr class="border-t-2 border-gray-100 my-4">
+                        </div>
+
+                        <label><input type="checkbox" id="fullAllocation" onclick="allocateFull()" />
+                            Allocate 100% to Money Market</label><br />
+                        <label><input type="checkbox" id="poolBased" onclick="allocatePool()" />
+                            Allocate based on Pool Allocation</label>
+
+                        <table id="fundTable" class="w-full border-collapse border bg-gray-50 mt-4">
+                            <thead>
+                                <tr class="bg-gray-200">
+                                    <th class="border p-2">Pool</th>
+                                    <th class="border p-2">Market Value</th>
+                                    <th class="border p-2">Pool Allocation</th>
+                                    <th class="border p-2">Grant Allocation (%)</th>
+                                    <th class="border p-2">
+                                        Amount (<span id="currencySymbol">$</span>)
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="text-center">
+                                    <td class="border p-2">Money Market</td>
+                                    <td class="border p-2">$9,845.05</td>
+                                    <td class="border p-2">12%</td>
+                                    <td class="border p-2">
+                                        <input type="text" id="moneyMarketAllocation" class="border p-1 w-16 text-center allocation-percent"
+                                            placeholder="%" />
+                                    </td>
+                                    <td class="border p-2">
+                                        <input type="text" class="border p-1 w-16 text-center allocation-amount"
+                                            placeholder="$" />
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="border p-2">Asset Allocation (20% Equity)</td>
+                                    <td class="border p-2">$11,005.50</td>
+                                    <td class="border p-2">13%</td>
+                                    <td class="border p-2">
+                                        <input type="text" class="border p-1 w-16 text-center allocation-percent" placeholder="%" />
+                                    </td>
+                                    <td class="border p-2">
+                                        <input type="text" class="border p-1 w-16 text-center allocation-amount" placeholder="$" />
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="border p-2">Asset Allocation (70% Equity)</td>
+                                    <td class="border p-2">$12,369.11</td>
+                                    <td class="border p-2">15%</td>
+                                    <td class="border p-2">
+                                        <input type="text" class="border p-1 w-16 text-center allocation-percent" placeholder="%" />
+                                    </td>
+                                    <td class="border p-2">
+                                        <input type="text" class="border p-1 w-16 text-center allocation-amount" placeholder="$" />
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="border p-2">Asset Allocation (85% Equity)</td>
+                                    <td class="border p-2">$16,336.55</td>
+                                    <td class="border p-2">20%</td>
+                                    <td class="border p-2">
+                                        <input type="text" class="border p-1 w-16 text-center allocation-percent" placeholder="%" />
+                                    </td>
+                                    <td class="border p-2">
+                                        <input type="text" class="border p-1 w-16 text-center allocation-amount" placeholder="$" />
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="border p-2">Charitable Legacy</td>
+                                    <td class="border p-2">$14,632.24</td>
+                                    <td class="border p-2">18%</td>
+                                    <td class="border p-2">
+                                        <input type="text" class="border p-1 w-16 text-center allocation-percent" placeholder="%" />
+                                    </td>
+                                    <td class="border p-2">
+                                        <input type="text" class="border p-1 w-16 text-center allocation-amount" placeholder="$" />
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="border p-2">Environmental Impact Access</td>
+                                    <td class="border p-2">$18,211.50</td>
+                                    <td class="border p-2">22%</td>
+                                    <td class="border p-2">
+                                        <input type="text" class="border p-1 w-16 text-center allocation-percent" placeholder="%" />
+                                    </td>
+                                    <td class="border p-2">
+                                        <input type="text" class="border p-1 w-16 text-center allocation-amount" placeholder="$" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="button-container">
+                            <button type="button" onclick="goToPhase1()" class="form-btn">
+                                ⇽ Previous
+                            </button>
+                            <button type="button" onclick="submitDonation()" class="form-btn">
+                                Submit Donation
+                            </button>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Impact Stories -->
     <section class="impact">

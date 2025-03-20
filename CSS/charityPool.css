@@ -210,10 +210,139 @@ body {
 }
 
 
+.modal-title h2{
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 900;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    color: #335a7a;
+    
+}
+
+.form-desc h2{
+    font-size: 20px;
+    font-weight: 700;
+    color: #a3b8c5;
+
+}
 
 
-.staking-form {
+.modal-content {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    background: #ededed;
+}
+
+
+.stake-form {
+    background: #ffffff;
     padding: 40px;
+    border-radius: 12px;
+    text-align: left;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto; 
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+    align-items: stretch;
+}
+
+
+.stake-form label {
+    font-weight:700;
+    color: #606060;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 15px;
+}
+
+
+.stake-input,
+.stake-form input,
+.stake-form select {
+    width: calc(100% - 24px); 
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #333;
+    background: #f9f9f9;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    margin: 5px auto; 
+}
+
+
+
+.stake-form input:focus,
+.stake-form select:focus {
+    outline: none;
+    border-color: #6596bb;
+    box-shadow: 0px 0px 8px rgba(25, 154, 228, 0.3);
+}
+
+
+.stake-input option {
+    text-align: left;
+    color: #252525;
+}
+
+
+.stake-form div {
+    width: 100%;
+}
+
+.next-btn {
+    width: 100%;
+    background: linear-gradient(to right, #7ba8d8, #0a5a88);
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+.next-btn:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(to right, #53cfdf, #085261);
+    box-shadow: 0px 8px 16px rgba(59, 170, 183, 0.3);
+}
+
+.form-btn {
+    width: 60%;
+    background: linear-gradient(to right, #7ba8d8, #0a5a88);
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: block;
+    flex: 1; 
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+.form-btn:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(to right, #53cfdf, #085261);
+    box-shadow: 0px 8px 16px rgba(59, 170, 183, 0.3);
+}
+
+.button-container {
+    display: flex;
+    gap: 50px; 
 }
 
 
@@ -224,23 +353,6 @@ input, select {
     width: 80%;
     max-width: 300px;
 }
-
-
-button {
-    background: #008080;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-
-button:hover {
-    background: #006666;
-}
-
 
 .impact {
     padding: 40px;
@@ -264,3 +376,9 @@ footer {
     color: white;
     padding: 20px;
 }
+
+.hidden {
+    display: none;
+}
+
+
